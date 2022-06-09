@@ -2,7 +2,7 @@ version: "3.1"
 
 stories:
 
-- story: initiate brainstorm idea in mind
+- story: initiate brainstorm idea in mind 2
   steps:
   - intent: request_for_idea
   - action: utter_anypriorideas_question
@@ -12,7 +12,7 @@ stories:
     - idea
   - action: action_take_idea_forward
 
-- story: initiate brainstorm idea in mind
+- story: initiate brainstorm idea in mind 1
   steps:
   - intent: request_for_idea
   - action: utter_anypriorideas_question
