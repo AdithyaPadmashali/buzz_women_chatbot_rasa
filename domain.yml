@@ -1,0 +1,81 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - tell_name
+  - ask_name
+  - request_for_idea
+  - positive_response
+  - negative_response
+  - tell_idea
+
+entities:
+  - name
+  - idea
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+      intent: tell_name
+  idea:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: idea
+      intent: tell_idea
+
+responses:
+
+  utter_ask_idea:
+  - text: "What is the idea? Lets talk about it!"
+
+  utter_anypriorideas_question:
+  - text: "Do you already have an idea in your mind?"
+
+  utter_repeat_name:
+  - text: "Your name is {name}"
+
+  utter_respond_name:
+  - text: "Hello, {name}! Nice to meet you!"
+
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_inquire_name:
+  - text: "What's your name?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot trying to help you figure out a business idea."
+
+  utter_idea_noted:
+  - text: "Noted your idea. Let's talk"
+
+actions:
+  - action_show_ideas
+  - action_take_idea_forward
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
