@@ -31,30 +31,29 @@ stories:
 #   - intent: negative_response 
 #   - action: action_show_ideas
 
-- story:
+- story: finding idea path
   steps:
-  - intent: greet
-  - action: utter_iamabot
-  - intent: request_for_idea
-  - action: utter_anypriorideas_question
-  - intent: affirm
-  - action: utter_ask_idea
-  - intent: tell_cooking_idea
-  - slot_was_set: 
-    - idea
-#  - action: utter_idea_noted
+    - intent: request_for_idea
+    - action: utter_anypriorideas_question
+    - intent: affirm
+    - action: utter_ask_idea
+    - intent: tell_cooking_idea 
+    - action: utter_tell_idea
+    - checkpoint: idea_captured
+
+- story: cooking idea path
+  steps:
+  - checkpoint: idea_captured
+  - intent: more_info
   - action: action_take_idea_forward
-#  - action: utter_ask_skills
+  - action: utter_ask_skills
   - intent: affirm
   - action: utter_ask_competitors
   - intent: deny
   - action: utter_ask_customers
   - intent: affirm
   - action: action_tell_investment_returns
-  - action: utter_ask_can_invest
-  - intent: affirm
-  - action: utter_are_satisifed 
-  - intent: affirm
+  - intent: happy
   - action: utter_happy
 
   
