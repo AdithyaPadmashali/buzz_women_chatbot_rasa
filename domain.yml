@@ -1,19 +1,15 @@
 version: "3.1"
 
 intents:
+  - tell_cooking_idea
   - greet
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
-  - tell_name
-  - ask_name
   - request_for_idea
-  - positive_response
-  - negative_response
-  - tell_cooking_idea
+  - more_info
+  - happy
 
 entities:
   - idea
@@ -34,21 +30,8 @@ responses:
   utter_anypriorideas_question:
   - text: "Do you already have an idea in your mind?"
 
-  utter_repeat_name:
-  - text: "Your name is {name}"
-
-  utter_respond_name:
-  - text: "Hello, {name}! Nice to meet you!"
-
   utter_greet:
   - text: "Hey! How are you?"
-
-  utter_inquire_name:
-  - text: "What's your name?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
   - text: "Did that help you?"
@@ -79,6 +62,9 @@ responses:
 
   utter_are_satisifed:
   - text: "Are you happy with the returns ?"
+
+  utter_tell_idea:
+  - text: "Your idea was {idea}"
 
 actions:
   - action_show_ideas

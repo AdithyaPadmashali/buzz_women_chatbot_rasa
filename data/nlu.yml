@@ -5,11 +5,11 @@ nlu:
 - intent: tell_cooking_idea
   examples: |
     - My idea is [cooking](idea)
-    - I was thinking of [cooking](idea)
+    - I was thinking of [cooking] (idea)
     - [cooking](idea) is something I can do
-    - I am good at [cooking](idea)
+    - I am good at [cooking] (idea)
     - I can make tasty [food](idea)
-    - i can [cook](idea) well
+    - i can [cook] (idea) well
 
 - intent: deny
   examples: |
@@ -21,6 +21,13 @@ nlu:
     - no
     - nah
 
+- intent: more_info
+  examples: |
+    - Can you tell me something more ?
+    - I'd like to know more about it.
+    - Tell me about it.
+    - Give me some information
+
 - intent: request_for_idea
   examples: |
     - I want some ideas
@@ -30,20 +37,6 @@ nlu:
     - I want to make money
     - I want a source of income
     - I want to start a business
-
-
-# - intent: tell_name
-#   examples: |
-#     - my name is $name (PERSON)
-#     - I am called $name (PERSON)
-#     - I'm $name (PERSON)
-
-# - intent: ask_name
-#   examples: |
-#     - what is my name?
-#     - repeat my name
-#     - tell me my name
-#     - say my name
 
 - intent: greet
   examples: |
@@ -88,15 +81,13 @@ nlu:
     - okay
     - yup
 
-- intent: deny
+- intent: happy
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - thanks
+    - thankyou
+    - thx
+    - thank you
+    - thanks a lot
 
 - intent: bot_challenge
   examples: |
