@@ -2,44 +2,61 @@ version: "3.1"
 
 stories:
 
-- story: initiate brainstorm idea in mind 2
-  steps:
-  - intent: request_for_idea
-  - action: utter_anypriorideas_question
-  - intent: tell_idea
-  - action: utter_idea_noted
-  - slot_was_set:
-    - idea
-  - action: action_take_idea_forward
+# - story: initiate brainstorm idea in mind 2
+#   steps:
+#   - intent: request_for_idea
+#   - action: utter_anypriorideas_question
+#   - intent: tell_idea
+#   - action: utter_idea_noted
+#   - slot_was_set:
+#     - idea
+#   - action: action_take_idea_forward
 
-- story: initiate brainstorm idea in mind 1
+# - story: initiate brainstorm idea in mind 1
+#   steps:
+#   - intent: request_for_idea
+#   - action: utter_anypriorideas_question
+#   - intent: affirm
+#   - action: utter_ask_idea
+#   - intent: tell_idea
+#   - action: utter_idea_noted
+#   - slot_was_set:
+#     - idea
+#   - action: action_take_idea_forward
+
+# - story: initiate brainstorm idea not already in mind
+#   steps:
+#   - intent: request_for_idea 
+#   - action: utter_anypriorideas_question
+#   - intent: negative_response 
+#   - action: action_show_ideas
+
+- story:
   steps:
+  - intent: greet
+  - action: utter_iamabot
   - intent: request_for_idea
   - action: utter_anypriorideas_question
   - intent: affirm
   - action: utter_ask_idea
-  - intent: tell_idea
-  - action: utter_idea_noted
-  - slot_was_set:
+  - intent: tell_cooking_idea
+  - slot_was_set: 
     - idea
+#  - action: utter_idea_noted
   - action: action_take_idea_forward
+#  - action: utter_ask_skills
+  - intent: affirm
+  - action: utter_ask_competitors
+  - intent: deny
+  - action: utter_ask_customers
+  - intent: affirm
+  - action: action_tell_investment_returns
+  - action: utter_ask_can_invest
+  - intent: affirm
+  - action: utter_are_satisifed 
+  - intent: affirm
+  - action: utter_happy
 
-- story: initiate brainstorm idea not already in mind
-  steps:
-  - intent: request_for_idea 
-  - action: utter_anypriorideas_question
-  - intent: negative_response 
-  - action: action_show_ideas
-
-- story: store name
-  steps:
-    - action: utter_inquire_name
-    - intent: tell_name
-    - action: utter_respond_name
-
-- story: get name
-  steps:
-    - intent: ask_name
-    - action: utter_repeat_name
+  
 
 
