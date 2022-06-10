@@ -7,6 +7,8 @@ nlu:
     - My idea is [cooking](idea)
     - I was thinking of [cooking](idea)
     - [cooking](idea) is something I can do
+    - I am good at [cooking](idea)
+    - I can make 
 
 - intent: positive_response
   examples: |
@@ -40,9 +42,9 @@ nlu:
 
 - intent: tell_name
   examples: |
-    - my name is [Adi]{"entity":"name", "value":"Adi"}
-    - I am called [Adi]{"entity":"name", "value":"Adi"}
-    - I'm [Adi]{"entity":"name", "value":"Adi"}
+    - my name is $name (PERSON)
+    - I am called $name (PERSON)
+    - I'm $name (PERSON)
 
 - intent: ask_name
   examples: |
@@ -98,40 +100,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
 
 - intent: bot_challenge
   examples: |

@@ -12,6 +12,10 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
+
+import pandas as pd
+import numpy as np
+df = pd.read_csv("Corpus.csv")
 #
 #
 class ActionShowIdeas(Action):
@@ -23,7 +27,12 @@ class ActionShowIdeas(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Showing Ideas to be implemented")
+        ideas = df.loc[:,'Idea'].to_list()
+        
+        ideas = ' ,'.join(ideas)
+
+        print(ideas)
+        dispatcher.utter_message(text="You can think about {ideas}".format(ideas = ideas))
 
         return []
 

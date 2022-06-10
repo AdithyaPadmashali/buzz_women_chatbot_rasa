@@ -16,7 +16,7 @@ stories:
   steps:
   - intent: request_for_idea
   - action: utter_anypriorideas_question
-  - intent: positive_response
+  - intent: affirm
   - action: utter_ask_idea
   - intent: tell_idea
   - action: utter_idea_noted
@@ -31,16 +31,6 @@ stories:
   - intent: negative_response 
   - action: action_show_ideas
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_inquire_name
-  - intent: tell_name
-  - action: utter_respond_name
-  - intent: mood_great
-  - action: utter_happy
-
 - story: store name
   steps:
     - action: utter_inquire_name
@@ -52,22 +42,4 @@ stories:
     - intent: ask_name
     - action: utter_repeat_name
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye

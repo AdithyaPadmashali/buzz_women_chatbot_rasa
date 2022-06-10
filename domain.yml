@@ -16,11 +16,18 @@ intents:
   - tell_idea
 
 entities:
+  - PERSON
   - name
   - idea
 
 slots:
   name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+      intent: tell_name
+  PERSON:
     type: text
     mappings:
     - type: from_entity
