@@ -13,32 +13,18 @@ intents:
   - request_for_idea
   - positive_response
   - negative_response
-  - tell_idea
+  - tell_cooking_idea
 
 entities:
-  - PERSON
-  - name
   - idea
 
 slots:
-  name:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: name
-      intent: tell_name
-  PERSON:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: name
-      intent: tell_name
   idea:
     type: text
     mappings:
     - type: from_entity
       entity: idea
-      intent: tell_idea
+      intent: tell_cooking_idea
 
 responses:
 
@@ -74,14 +60,30 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot trying to help you figure out a business idea."
+  - text: "I am a bot trying to help you figure out a business idea. What can I do for you ?"
 
   utter_idea_noted:
   - text: "Noted your idea. Let's talk"
 
+  utter_ask_skills:
+  - text: "Do you have the necessary skills?"
+
+  utter_ask_competitors:
+  - text: "Do you have many competitors ?"
+
+  utter_ask_customers:
+  - text : "Do you have enough customers ? "
+
+  utter_ask_can_invest:
+  - text: "Do you have enough investment ?"
+
+  utter_are_satisifed:
+  - text: "Are you happy with the returns ?"
+
 actions:
   - action_show_ideas
   - action_take_idea_forward
+  - action_tell_investment_returns
 
 session_config:
   session_expiration_time: 60

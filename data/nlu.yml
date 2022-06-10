@@ -2,24 +2,16 @@ version: "3.1"
 
 nlu:
 
-- intent: tell_idea
+- intent: tell_cooking_idea
   examples: |
     - My idea is [cooking](idea)
     - I was thinking of [cooking](idea)
     - [cooking](idea) is something I can do
     - I am good at [cooking](idea)
-    - I can make 
+    - I can make tasty [food](idea)
+    - i can [cook](idea) well
 
-- intent: positive_response
-  examples: |
-    - Yes
-    - Of course
-    - sure
-    - yeah
-    - okay
-    - yup
-
-- intent: negative_response
+- intent: deny
   examples: |
     - No
     - Not at all
@@ -40,18 +32,18 @@ nlu:
     - I want to start a business
 
 
-- intent: tell_name
-  examples: |
-    - my name is $name (PERSON)
-    - I am called $name (PERSON)
-    - I'm $name (PERSON)
+# - intent: tell_name
+#   examples: |
+#     - my name is $name (PERSON)
+#     - I am called $name (PERSON)
+#     - I'm $name (PERSON)
 
-- intent: ask_name
-  examples: |
-    - what is my name?
-    - repeat my name
-    - tell me my name
-    - say my name
+# - intent: ask_name
+#   examples: |
+#     - what is my name?
+#     - repeat my name
+#     - tell me my name
+#     - say my name
 
 - intent: greet
   examples: |
@@ -90,6 +82,11 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - Of course
+    - sure
+    - yeah
+    - okay
+    - yup
 
 - intent: deny
   examples: |
@@ -107,3 +104,9 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- lookup : idea
+  examples : |
+    - cooking
+    - cook
+    - food

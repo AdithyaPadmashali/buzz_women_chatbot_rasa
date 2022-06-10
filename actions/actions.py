@@ -10,7 +10,7 @@
 from typing import Any, Text, Dict, List
 #
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 
 import pandas as pd
@@ -46,7 +46,32 @@ class ActionTakeIdeaForward(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Taking your Idea forward")
-        dispatcher.utter_message(text="....show corpus data.... of " + tracker.get_slot('idea'))
+        res = df.loc[df['Idea'] == 'Papad Making', 'Skills'].to_list()
+        res = res[0]
+        print(res)
+        print(tracker.get_slot('idea'))
+        if (tracker.get_slot('idea') in ['cooking', 'cook', 'food']):
+            #dispatcher.utter_message(text="Here's somehting you need to know about cooking")
+            dispatcher.utter_message(text="Skills needed are {skills}".format(skills = res))
+            #return [FollowupAction("utter_ask_skills")]
+
+        return []
+
+
+
+class ActionTellInvestment(Action):
+
+    def name(self) -> Text:
+        return "action_tell_investment_returns"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        res = df.loc[df['Idea'] == 'Papad Making', 'Investment':'Income'].to_dict()
+        print(res)
+        if (tracker.get_slot('idea') in ['cooking', 'cook', 'food']):
+            dispatcher.utter_message(text="Here's some more info")
+            dispatcher.utter_message(text="Investment : {inv} and skills : {skills}".format(inv = res['Investment'][0], skills = res['Income'][0]))
 
         return []
