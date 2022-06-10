@@ -47,10 +47,10 @@ stories:
     - intent: tell_name
     - action: utter_respond_name
 
-- story: get name
-  steps:
-    - intent: ask_name
-    - action: utter_repeat_name
+# - story: get name
+#   steps:
+#     - intent: ask_name
+#     - action: utter_repeat_name
 
 - story: sad path 1
   steps:
