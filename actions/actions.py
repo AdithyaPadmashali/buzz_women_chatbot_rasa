@@ -16,9 +16,10 @@ from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 import numpy as np
 df = pd.read_csv("Corpus.csv")
-#
-#
 
+#
+#
+skill_submitted = []
 class ActionShowIdeas(Action):
 
     def name(self) -> Text:
@@ -28,13 +29,16 @@ class ActionShowIdeas(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        skill_submitted = tracker.get_slot('skill')
+        skill_submitted.extend(tracker.get_slot('skill'))
 
-        ideas = df.loc[df['Idea'] == skill_submitted,'Idea'].to_list()
+        print(skill_submitted)
+        ideas = []
+        for s in skill_submitted:
+            ideas.append(df.loc[df['Idea'] == s,'Idea'].to_list())
         
         # ideas = ' ,'.join(ideas)
 
-        print(ideas)
+        # print(ideas)
         if(not skill_submitted):
             dispatcher.utter_message(text="Sorry, didnt get what you meant")
         else:
@@ -54,11 +58,16 @@ class ActionTakeIdeaForward(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         idea_submitted = tracker.get_slot('idea')
+        skill_submitted = tracker.get_slot('skill')
 
-        if(not idea_submitted):
+        print(idea_submitted, skill_submitted)
+        if(not idea_submitted and not skill_submitted):
             dispatcher.utter_message(text = 'didnt quite get what the idea was...')
         else:
-            dispatcher.utter_message(text = 'Taking your idea of '+ tracker.get_slot('idea')+' to the next level!')
+            if(idea_submitted):
+                dispatcher.utter_message(text = 'Taking 1 your idea of '+ str(tracker.get_slot('idea'))+' to the next level!')
+            elif(skill_submitted):
+                dispatcher.utter_message(text = 'Taking your idea of '+ str(tracker.get_slot('skill'))+' to the next level!')
         # res = df.loc[df['Idea'] == 'Papad Making', 'Skills'].to_list()
         # res = res[0]
         # print(res)

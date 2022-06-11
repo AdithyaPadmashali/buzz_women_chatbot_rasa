@@ -14,9 +14,19 @@ stories:
     - action: action_show_ideas
     - intent: tell_idea
     - action: utter_okay_idea
+    #here's what I know about the idea
 
-- story: After showing ideas 2
+- story: Happy After showing ideas 2
   steps:
     - action: action_show_ideas
     - intent: request_for_idea_details
     - action: action_take_idea_forward
+    - action: utter_proceed_with_idea_or_not
+    - intent: affirm_preceed_with 
+    - action: utter_test
+
+- story: Sad After Choosing Idea yes 1
+  steps:
+    - action: utter_test
+    - intent: affirm
+    - action: utter_passed

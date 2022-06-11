@@ -29,7 +29,7 @@ slots:
       entity: idea
       intent: request_for_idea_details
   skill:
-    type: text
+    type: list
     mappings:
     - type: from_entity
       entity: skill
@@ -57,6 +57,18 @@ responses:
 
   utter_okay_idea:
   - text: "Great! Lets talk about {idea}!"
+
+  utter_test:
+  - text: "next ask competitors"
+
+  utter_passed:
+  - text: "next ask customers?"
+
+  utter_passed1:
+  - text: "done?"
+
+  utter_proceed_with_idea_or_not:
+  - text: "Would you like to talk more about this? If no choose another topic to talk about"
 
 actions:
   - action_show_ideas

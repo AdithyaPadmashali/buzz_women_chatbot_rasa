@@ -110,12 +110,20 @@ nlu:
     - I can [teach](skill)
     - I am good at [embroidery](skill)
     - I am good at [math](skill)
-
+    - I am good at [teaching](skill) and [embroidery](skill)
+    - I can do [teaching](skill) and [embroidery](skill)
+    - I can do [teaching](skill), [embroidery](skill) and [make papad](skill)
+    - my skills are [teaching](skill) and [embroidery](skill)
+    - my skills are [teaching](skill), [embroidery](skill) and [make papad](skill)
+  
 - lookup: idea
   examples: |
     - cooking 
     - teaching
     - tailoring
+    - papad making 
+    - teaching math
+    - embroidery
 
 - lookup: skill
   examples: |
