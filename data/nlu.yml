@@ -61,11 +61,14 @@ nlu:
     - bye
     - goodbye
     - have a nice day
-    - see you around
     - bye bye
-    - see you later
     - thanks for the idea bye
     - alright thanks for the idea
+    - thanks for the help, bot
+    - thanks and bye
+    - thanks bye
+    - thsnxk bye
+
 
 - intent: affirm
   examples: |
@@ -133,15 +136,46 @@ nlu:
     - I think not many
     - very few are there
 
+- intent: tell_customers_positive
+  examples: |
+    - A lot of customers are there
+    - Many customers are there
+    - Yes there would be hundreds
+    - Yes there would be thousands of customers
+    - I think I can gather customers without any problem
+    - Getting customers is easy
+    - Getting customers is not a problem for me
+    - Maybe a lot
+    - I think there are a lot of customers around my area
+    - Yeah there may be many customers
+
+- intent: tell_customers_negative
+  examples: |
+    - Not A lot of customers are there
+    - There aren't many customers
+    - Not many customers are there
+    - There probably will not be many customers
+    - I don't know if I can gather customers
+    - Getting customers is difficult
+    - getting customers will not be easy
+    - Getting customers is a problem for me
+    - Maybe very few
+    - not more than a few
+    - I don't think there are a lot of customers around my area
+    - No there may not be many customers
+
 - intent: affirm_proceed_with_idea
   examples: |
     - Yes I will proceed with this idea
+    - yes I'd like to talk about it
     - Yes I like this idea
     - yes tell me more
     - okay tell me more
     - okay fine
     - okay proceed
     - proceed 
+    - yeah I'd like to proceed 
+    - yeah sure I'd like to proceed
     - continue
 
 - lookup: idea

@@ -33,6 +33,26 @@ stories:
   
 - story: Sad After Choosing Idea yes 1
   steps:
-      - action: utter_ask_competitors
-      - intent: tell_competitors_positive
-      - action: utter_ask_customers1
+    - action: utter_ask_competitors
+    - intent: tell_competitors_positive
+    - action: utter_ask_customers
+
+- story: Happy after answering about competitors 1
+  steps:
+    - action: utter_ask_customers
+    - intent: tell_customers_positive
+    - action: action_tell_investment_returns
+    - action: utter_ask_investment_returns_finalization
+
+- story: Sad after answering about competitors 1
+  steps:
+    - action: utter_ask_customers
+    - intent: tell_customers_negative
+    # - action: utter_test
+
+- story: Happy after seeing investment returns 1
+  steps:
+    - action : utter_ask_investment_returns_finalization
+    - intent: affirm
+    - action: action_summarize
+ 

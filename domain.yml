@@ -14,6 +14,8 @@ intents:
   - affirm_proceed_with_idea
   - tell_competitors_positive
   - tell_competitors_negative
+  - tell_customers_positive
+  - tell_customers_negative
 
 
 entities:
@@ -38,6 +40,13 @@ slots:
       entity: skill
       intent: tell_skills
 
+  # proceed_with_idea:
+  #   type: bool
+  #   initial_value: false
+  #   mappings:
+  #   - type: from_intent
+  #     value: true
+  #     intent: affirm_proceed_with_idea
         
       
 
@@ -50,13 +59,16 @@ responses:
   - text: "Tell me about your skills, so I can suggest you ideas"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "I hope I could help! All the best, gelathi!"
+  - text: "I wish you all the best in your journey, gelathi!"
+  - text: "Alright gelathi! good luck and I hope I was of some help :)"
+  - text: "Okayy! Best of luck, gelathi! I hope you make a lot of money :)"
 
   utter_iamabot:
   - text: "I am a bot trying to help you figure out a business idea. What can I do for you ?"
 
   utter_bot_abilities:
-  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind"
+  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind. Also please try to avoid short responses :)"
 
   utter_okay_idea:
   - text: "Great! Lets talk about {idea}!"
@@ -64,11 +76,17 @@ responses:
   utter_ask_competitors:
   - text: "How many competitors might be there around you?"
 
-  utter_ask_customers:
-  - text: "next ask customers?"
+  utter_ask_investment_returns_finalization:
+  - text: "so, are the investment details okay with you?"
+  - text: "will you be able to invest your time, effort and money into this?"
 
-  utter_ask_customers1:
-  - text: "next ask customers? sad"
+  utter_ask_customers:
+  - text: "How many potential customers would you be able to get?"
+  - text: "Are there a lot of customers around there? How many do you think you can get?"
+  - text: "Consider the amount of customers for your business around that area? are there any? are there many?"
+
+  utter_test:
+    - text: "This is the slot values : {proceed_with_idea}"
 
   utter_proceed_with_idea_or_not:
   - text: "Would you like to talk more about this? If no choose another topic to talk about"
@@ -77,6 +95,7 @@ actions:
   - action_show_ideas
   - action_take_idea_forward
   - action_tell_investment_returns
+  - action_summarize
 
 session_config:
   session_expiration_time: 60

@@ -90,10 +90,49 @@ class ActionTellInvestment(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        res = df.loc[df['Idea'] == 'Papad Making', 'Investment':'Income'].to_dict()
-        print(res)
-        if (tracker.get_slot('idea') in ['cooking', 'cook', 'food']):
-            dispatcher.utter_message(text="Here's some more info")
-            dispatcher.utter_message(text="Investment : {inv} and skills : {skills}".format(inv = res['Investment'][0], skills = res['Income'][0]))
+        # res = df.loc[df['Idea'] == 'Papad Making', 'Investment':'Income'].to_dict()
+        # print(res)
+
+        idea_submitted = tracker.get_slot('idea')
+        skill_submitted = tracker.get_slot('skill')
+
+        if not skill_submitted and not idea_submitted:
+            dispatcher.utter_message(text="Didn't quite catch that...")
+
+        else:
+            if(idea_submitted):
+                dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('idea')) +' to work ')
+                dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('idea')))
+            elif(skill_submitted):
+                dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('skill')) +' to work ')
+                dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('skill')))
+
+        return []
+
+
+class ActionSummarize(Action):
+
+    def name(self) -> Text:
+        return "action_summarize"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Now im summarizing your facts")
+
+        # idea_submitted = tracker.get_slot('idea')
+        # skill_submitted = tracker.get_slot('skill')
+
+        # if not skill_submitted and not idea_submitted:
+        #     dispatcher.utter_message(text="Didn't quite catch that...")
+
+        # else:
+        #     if(idea_submitted):
+        #         dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('idea')) +' to work ')
+        #         dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('idea')))
+        #     elif(skill_submitted):
+        #         dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('skill')) +' to work ')
+        #         dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('skill')))
 
         return []
