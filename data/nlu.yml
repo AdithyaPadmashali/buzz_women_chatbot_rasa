@@ -2,31 +2,6 @@ version: "3.1"
 
 nlu:
 
-- intent: tell_idea
-  examples: |
-    - My idea is [cooking](idea)
-    - I was thinking of [cooking](idea)
-    - [cooking](idea) is something I can do
-
-- intent: positive_response
-  examples: |
-    - Yes
-    - Of course
-    - sure
-    - yeah
-    - okay
-    - yup
-
-- intent: negative_response
-  examples: |
-    - No
-    - Not at all
-    - Not sure
-    - I don't know
-    - Nope
-    - no
-    - nah
-
 - intent: request_for_idea
   examples: |
     - I want some ideas
@@ -36,21 +11,31 @@ nlu:
     - I want to make money
     - I want a source of income
     - I want to start a business
+    - I was looking for an idea
+    - tell me some ideas please
+    - suggest me some ideas 
+    - Can you tell me a few ideas?
 
-
-- intent: tell_name
+- intent: tell_idea
   examples: |
-    - my name is [Adi]{"entity":"name", "value":"Adi"}
-    - I am called [Adi]{"entity":"name", "value":"Adi"}
-    - I'm [Adi]{"entity":"name", "value":"Adi"}
+    - I was thinking of [cooking](idea)
+    - I was thinking of setting up a [tailoring](idea) business
+    - I wanted to start a [cooking](idea) business
+    - I wanted to start [teaching](idea)
+    - [teaching](idea) seems like a good idea to me
+    - I could try [teaching](idea)
+    - I could try [cooking](idea)
 
-- intent: ask_name
+- intent: request_for_idea_details
   examples: |
-    - what is my name?
-    - repeat my name
-    - tell me my name
-    - say my name
-
+    - I need more details about [cooking](idea)
+    - I want more details about [cooking](idea)
+    - can you tell me more about [cooking](idea)?
+    - give me more details about [cooking](idea)?
+    - can you tell me more about the idea?
+    - can you tell me more about it?
+    - give me more details about the idea?
+    
 - intent: greet
   examples: |
     - hey
@@ -79,6 +64,8 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - thanks for the idea bye
+    - alright thanks for the idea
 
 - intent: affirm
   examples: |
@@ -88,6 +75,11 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - Of course
+    - sure
+    - yeah
+    - okay
+    - yup
 
 - intent: deny
   examples: |
@@ -99,43 +91,35 @@ nlu:
     - no way
     - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who are you?
+
+- intent: inquire_bot_abilities
+  examples: |
+    - what can you do for me?
+    - what can you do?
+
+- intent: tell_skills
+  examples: |
+    - I can [make papad](skill)
+    - I can [teach](skill)
+    - I am good at [embroidery](skill)
+    - I am good at [math](skill)
+
+- lookup: idea
+  examples: |
+    - cooking 
+    - teaching
+    - tailoring
+
+- lookup: skill
+  examples: |
+    - papad making 
+    - teaching math
+    - embroidery
+  

@@ -5,76 +5,63 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
-  - tell_name
-  - ask_name
   - request_for_idea
-  - positive_response
-  - negative_response
+  - request_for_idea_details
   - tell_idea
+  - tell_skills
+  - inquire_bot_abilities
+
 
 entities:
-  - name
   - idea
+  - skill
+
 
 slots:
-  name:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: name
-      intent: tell_name
   idea:
     type: text
     mappings:
     - type: from_entity
       entity: idea
       intent: tell_idea
+    - type: from_entity
+      entity: idea
+      intent: request_for_idea_details
+  skill:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: skill
+      intent: tell_skills
+
+        
+      
 
 responses:
 
-  utter_ask_idea:
-  - text: "What is the idea? Lets talk about it!"
-
-  utter_anypriorideas_question:
-  - text: "Do you already have an idea in your mind?"
-
-  utter_repeat_name:
-  - text: "Your name is {name}"
-
-  utter_respond_name:
-  - text: "Hello, {name}! Nice to meet you!"
-
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! What can I do for you?"
 
-  utter_inquire_name:
-  - text: "What's your name?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_ask_skills:
+  - text: "Tell me about your skills, so I can suggest you ideas"
 
   utter_goodbye:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot trying to help you figure out a business idea."
+  - text: "I am a bot trying to help you figure out a business idea. What can I do for you ?"
 
-  utter_idea_noted:
-  - text: "Noted your idea. Let's talk"
+  utter_bot_abilities:
+  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind"
+
+  utter_okay_idea:
+  - text: "Great! Lets talk about {idea}!"
 
 actions:
   - action_show_ideas
   - action_take_idea_forward
+  - action_tell_investment_returns
 
 session_config:
   session_expiration_time: 60
