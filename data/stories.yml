@@ -22,11 +22,17 @@ stories:
     - intent: request_for_idea_details
     - action: action_take_idea_forward
     - action: utter_proceed_with_idea_or_not
-    - intent: affirm_preceed_with 
-    - action: utter_test
+    - intent: affirm_proceed_with_idea
+    - action: utter_ask_competitors
 
+- story: Happy After Choosing Idea yes 1
+  steps:
+    - action: utter_ask_competitors
+    - intent: tell_competitors_negative
+    - action: utter_ask_customers
+  
 - story: Sad After Choosing Idea yes 1
   steps:
-    - action: utter_test
-    - intent: affirm
-    - action: utter_passed
+      - action: utter_ask_competitors
+      - intent: tell_competitors_positive
+      - action: utter_ask_customers1

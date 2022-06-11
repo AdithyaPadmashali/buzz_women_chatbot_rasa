@@ -11,6 +11,9 @@ intents:
   - tell_idea
   - tell_skills
   - inquire_bot_abilities
+  - affirm_proceed_with_idea
+  - tell_competitors_positive
+  - tell_competitors_negative
 
 
 entities:
@@ -58,14 +61,14 @@ responses:
   utter_okay_idea:
   - text: "Great! Lets talk about {idea}!"
 
-  utter_test:
-  - text: "next ask competitors"
+  utter_ask_competitors:
+  - text: "How many competitors might be there around you?"
 
-  utter_passed:
+  utter_ask_customers:
   - text: "next ask customers?"
 
-  utter_passed1:
-  - text: "done?"
+  utter_ask_customers1:
+  - text: "next ask customers? sad"
 
   utter_proceed_with_idea_or_not:
   - text: "Would you like to talk more about this? If no choose another topic to talk about"

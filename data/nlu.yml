@@ -115,7 +115,35 @@ nlu:
     - I can do [teaching](skill), [embroidery](skill) and [make papad](skill)
     - my skills are [teaching](skill) and [embroidery](skill)
     - my skills are [teaching](skill), [embroidery](skill) and [make papad](skill)
-  
+
+- intent: tell_competitors_positive
+  examples: |
+    - A lot of them are there
+    - Many competitors are there
+    - Around six to ten
+    - maybe too many
+    - maybe a lot
+
+- intent: tell_competitors_negative
+  examples: |
+    - I don't know how many
+    - I'm not sure about it
+    - I'm not sure
+    - Not many
+    - I think not many
+    - very few are there
+
+- intent: affirm_proceed_with_idea
+  examples: |
+    - Yes I will proceed with this idea
+    - Yes I like this idea
+    - yes tell me more
+    - okay tell me more
+    - okay fine
+    - okay proceed
+    - proceed 
+    - continue
+
 - lookup: idea
   examples: |
     - cooking 
