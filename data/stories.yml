@@ -14,6 +14,7 @@ stories:
     - action: action_show_ideas
     - intent: tell_idea
     - action: utter_okay_idea
+    - action: action_take_idea_forward
     #here's what I know about the idea
 
 - story: Happy After showing ideas 2
@@ -24,6 +25,20 @@ stories:
     - action: utter_proceed_with_idea_or_not
     - intent: affirm_proceed_with_idea
     - action: utter_ask_competitors
+
+- story: Sad proceed with ideas 1
+  steps:
+    - action: utter_proceed_with_idea_or_not
+    - intent: deny_proceed_with_idea
+    - slot_was_set:
+      - idea
+    - action: action_show_ideas
+
+- story: Sad proceed with ideas 2
+  steps:
+    - action: utter_proceed_with_idea_or_not
+    - intent: deny_proceed_with_idea
+    - action: action_take_idea_forward
 
 - story: Happy After Choosing Idea yes 1
   steps:

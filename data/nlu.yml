@@ -25,6 +25,7 @@ nlu:
     - [teaching](idea) seems like a good idea to me
     - I could try [teaching](idea)
     - I could try [cooking](idea)
+    
 
 - intent: request_for_idea_details
   examples: |
@@ -32,6 +33,8 @@ nlu:
     - I want more details about [cooking](idea)
     - can you tell me more about [cooking](idea)?
     - give me more details about [cooking](idea)?
+    - I am interested in [cooking](skill)
+    - I am interested in [cooking](idea)
     - can you tell me more about the idea?
     - can you tell me more about it?
     - give me more details about the idea?
@@ -135,6 +138,7 @@ nlu:
     - Not many
     - I think not many
     - very few are there
+    - maybe a few
 
 - intent: tell_customers_positive
   examples: |
@@ -178,18 +182,29 @@ nlu:
     - yeah sure I'd like to proceed
     - continue
 
+- intent: deny_proceed_with_idea
+  examples: |
+    - no i want to talk about [teaching](idea)
+    - No i want to talk about [teaching](idea)
+    - I would rather talk about [teaching](idea)
+    - no I will not proceed with this idea
+    - no I dont want to talk about it
+    - no I want to talk about something else
+    - no I dont like this idea
+    - dont proceed
+    - do not proceed 
+    - no i dont want to proceed 
+
 - lookup: idea
   examples: |
-    - cooking 
-    - teaching
-    - tailoring
     - papad making 
     - teaching math
     - embroidery
 
 - lookup: skill
   examples: |
-    - papad making 
-    - teaching math
-    - embroidery
+    - cooking 
+    - teaching
+    - tailoring
+
   

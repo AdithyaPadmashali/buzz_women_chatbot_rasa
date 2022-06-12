@@ -29,7 +29,8 @@ class ActionShowIdeas(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        skill_submitted.extend(tracker.get_slot('skill'))
+        if tracker.get_slot('skill'):
+            skill_submitted.extend(tracker.get_slot('skill'))
 
         print(skill_submitted)
         ideas = []
@@ -43,6 +44,8 @@ class ActionShowIdeas(Action):
             dispatcher.utter_message(text="Sorry, didnt get what you meant")
         else:
             dispatcher.utter_message(text="You can think about {ideas}".format(ideas = ideas))
+
+        dispatcher.utter_message(text = "so, which one would you like to talk about?")
             # dispatcher.utter_message(text="But considering your skills, these seem to be a good match: ")
 
         return []
@@ -77,7 +80,7 @@ class ActionTakeIdeaForward(Action):
         #     dispatcher.utter_message(text="Okay, the skills needed are {skills}".format(skills = res))
         #     return [FollowupAction("action_tell_investment_returns")]
 
-        return []
+        return [FollowupAction("utter_proceed_with_idea_or_not")]
 
 
 

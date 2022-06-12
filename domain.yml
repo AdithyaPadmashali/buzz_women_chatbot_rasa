@@ -12,6 +12,7 @@ intents:
   - tell_skills
   - inquire_bot_abilities
   - affirm_proceed_with_idea
+  - deny_proceed_with_idea
   - tell_competitors_positive
   - tell_competitors_negative
   - tell_customers_positive
@@ -26,6 +27,7 @@ entities:
 slots:
   idea:
     type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: idea
@@ -33,8 +35,12 @@ slots:
     - type: from_entity
       entity: idea
       intent: request_for_idea_details
+    - type: from_entity
+      entity: idea
+      intent: deny_proceed_with_idea
   skill:
     type: list
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: skill
@@ -72,6 +78,7 @@ responses:
 
   utter_okay_idea:
   - text: "Great! Lets talk about {idea}!"
+  - text: "Sure! Lets explore {idea}!"
 
   utter_ask_competitors:
   - text: "How many competitors might be there around you?"
