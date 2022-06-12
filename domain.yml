@@ -8,11 +8,21 @@ intents:
   - deny
   - bot_challenge
   - request_for_idea
-  - more_info
-  - happy
+  - request_for_idea_details
+  - tell_idea
+  - tell_skills
+  - inquire_bot_abilities
+  - affirm_proceed_with_idea
+  - tell_competitors_positive
+  - tell_competitors_negative
+  - tell_customers_positive
+  - tell_customers_negative
+
 
 entities:
   - idea
+  - skill
+
 
 slots:
   idea:
@@ -20,48 +30,67 @@ slots:
     mappings:
     - type: from_entity
       entity: idea
-      intent: tell_cooking_idea
+      intent: tell_idea
+    - type: from_entity
+      entity: idea
+      intent: request_for_idea_details
+  skill:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: skill
+      intent: tell_skills
+
+  # proceed_with_idea:
+  #   type: bool
+  #   initial_value: false
+  #   mappings:
+  #   - type: from_intent
+  #     value: true
+  #     intent: affirm_proceed_with_idea
+        
+      
 
 responses:
 
-  utter_ask_idea:
-  - text: "What is the idea? Lets talk about it!"
-
-  utter_anypriorideas_question:
-  - text: "Do you already have an idea in your mind?"
-
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! What can I do for you?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_ask_skills:
+  - text: "Tell me about your skills, so I can suggest you ideas"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "I hope I could help! All the best, gelathi!"
+  - text: "I wish you all the best in your journey, gelathi!"
+  - text: "Alright gelathi! good luck and I hope I was of some help :)"
+  - text: "Okayy! Best of luck, gelathi! I hope you make a lot of money :)"
 
   utter_iamabot:
   - text: "I am a bot trying to help you figure out a business idea. What can I do for you ?"
 
-  utter_idea_noted:
-  - text: "Noted your idea. Let's talk"
+  utter_bot_abilities:
+  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind. Also please try to avoid short responses :)"
 
-  utter_ask_skills:
-  - text: "Do you have the necessary skills?"
+  utter_okay_idea:
+  - text: "Great! Lets talk about {idea}!"
 
   utter_ask_competitors:
-  - text: "Do you have many competitors ?"
+  - text: "How many competitors might be there around you?"
+
+  utter_ask_investment_returns_finalization:
+  - text: "so, are the investment details okay with you?"
+  - text: "will you be able to invest your time, effort and money into this?"
 
   utter_ask_customers:
-  - text : "Do you have enough customers ? "
+  - text: "How many potential customers would you be able to get?"
+  - text: "Are there a lot of customers around there? How many do you think you can get?"
+  - text: "Consider the amount of customers for your business around that area? are there any? are there many?"
 
-  utter_ask_can_invest:
-  - text: "Do you have enough investment ?"
+  utter_test:
+    - text: "This is the slot values : {proceed_with_idea}"
 
-  utter_are_satisifed:
-  - text: "Are you happy with the returns ?"
+  utter_proceed_with_idea_or_not:
+  - text: "Would you like to talk more about this? If no choose another topic to talk about"
 
   utter_tell_idea:
   - text: "Your idea was {idea}"
@@ -70,6 +99,7 @@ actions:
   - action_show_ideas
   - action_take_idea_forward
   - action_tell_investment_returns
+  - action_summarize
 
 session_config:
   session_expiration_time: 60

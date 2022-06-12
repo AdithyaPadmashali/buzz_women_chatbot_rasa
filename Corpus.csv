@@ -1,4 +1,6 @@
-idea,legal_registration,requirements,investment_cost,profit_amount,income,skills
-Papad Making [small scale],mandatory,"Flour varieties, spices, condiments, sheets, mould, sealing machine, weighing machine, grinder, commercial electricity supply",50000,"4,50,000","5,00,000",Cooking 
-Tailoring,not-mandatory,"Sewing Machine, Thread bundle, needles, electricity supply","2,00,000","10,00,000","15,00,000","Hand stitch, machine stitch, crafting techniques"
-Goat Rearing,mandatory,"Goats, Fencing, Goat Housing, Bedding,Grassland, Food availability[Hay, grains, ], water source","15,00,000","9,50,000","11,70,000","Deworm goats, trim and brush, milk goat, "
+﻿Idea,Investment,Income,Skills
+papad making,You need a fairly low investment for this.,You will have an average profit of 30%,
+embroidery,You will need an investment of 25k min,You can earn if u have less competition,You should know how to stitch and alter clothes
+teach,You will need to be good at arithmetic and geometry,You can earn a decent income,Should be able to communicate well
+teaching,You will need to be good at arithmetic and geometry,You can earn a decent income,Should be able to communicate well
+
