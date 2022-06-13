@@ -29,11 +29,12 @@ class ActionShowIdeas(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        skill_submitted.extend(tracker.get_slot('skill'))
+        skill_submitted.extend(tracker.get_slot('idea'))
 
         print(skill_submitted)
         ideas = []
         for s in skill_submitted:
+            print(s)
             ideas.append(df.loc[df['Idea'] == s,'Idea'].to_list())
         
         # ideas = ' ,'.join(ideas)
@@ -58,16 +59,19 @@ class ActionTakeIdeaForward(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         idea_submitted = tracker.get_slot('idea')
-        skill_submitted = tracker.get_slot('skill')
 
-        print(idea_submitted, skill_submitted)
-        if(not idea_submitted and not skill_submitted):
-            dispatcher.utter_message(text = 'didnt quite get what the idea was...')
-        else:
-            if(idea_submitted):
-                dispatcher.utter_message(text = 'Taking 1 your idea of '+ str(tracker.get_slot('idea'))+' to the next level!')
-            elif(skill_submitted):
-                dispatcher.utter_message(text = 'Taking your idea of '+ str(tracker.get_slot('skill'))+' to the next level!')
+        dispatcher.utter_message(text = 'Taking your idea of '+ str(idea_submitted)+' to the next level!')
+
+        # skill_submitted = tracker.get_slot('skill')
+
+        # print(idea_submitted, skill_submitted)
+        # if(not idea_submitted and not skill_submitted):
+        #     dispatcher.utter_message(text = 'didnt quite get what the idea was...')
+        # else:
+        #     if(idea_submitted):
+                # dispatcher.utter_message(text = 'Taking 1 your idea of '+ str(tracker.get_slot('idea'))+' to the next level!')
+            # elif(skill_submitted):
+            #     dispatcher.utter_message(text = 'Taking your idea of '+ str(tracker.get_slot('skill'))+' to the next level!')
         # res = df.loc[df['Idea'] == 'Papad Making', 'Skills'].to_list()
         # res = res[0]
         # print(res)
@@ -94,18 +98,22 @@ class ActionTellInvestment(Action):
         # print(res)
 
         idea_submitted = tracker.get_slot('idea')
-        skill_submitted = tracker.get_slot('skill')
 
-        if not skill_submitted and not idea_submitted:
-            dispatcher.utter_message(text="Didn't quite catch that...")
+        dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(idea_submitted) +' to work ')
+        dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(idea_submitted))
 
-        else:
-            if(idea_submitted):
-                dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('idea')) +' to work ')
-                dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('idea')))
-            elif(skill_submitted):
-                dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('skill')) +' to work ')
-                dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('skill')))
+        # skill_submitted = tracker.get_slot('skill')
+
+        # if not skill_submitted and not idea_submitted:
+        #     dispatcher.utter_message(text="Didn't quite catch that...")
+
+        # else:
+        #     if(idea_submitted):
+        #         dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('idea')) +' to work ')
+        #         dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('idea')))
+        #     elif(skill_submitted):
+        #         dispatcher.utter_message(text = 'Here\'s what you probably need to invest for' + str(tracker.get_slot('skill')) +' to work ')
+        #         dispatcher.utter_message(text = 'and here\'s what you probably will get in return for' + str(tracker.get_slot('skill')))
 
         return []
 

@@ -1,6 +1,13 @@
+#continuing from intermediate
 version: "3.1"
 
 stories:
+
+- story: I have an idea
+  steps:
+    - intent: tell_idea
+    - action: action_take_idea_forward
+
 
 - story: Show ideas when asked
   steps: 
@@ -13,7 +20,7 @@ stories:
   steps:
     - action: action_show_ideas
     - intent: tell_idea
-    - action: utter_okay_idea
+    - action: action_take_idea_forward
     #here's what I know about the idea
 
 - story: Happy After showing ideas 2
@@ -25,6 +32,37 @@ stories:
     - intent: affirm_proceed_with_idea
     - action: utter_ask_competitors
 
+- story: take idea forward 1
+  steps:
+    - action: action_take_idea_forward
+    - action: utter_proceed_with_idea_or_not
+    - intent: affirm_proceed_with_idea
+    - action: utter_ask_competitors
+
+- story: Sad After showing ideas 2
+  steps:
+    - action: action_show_ideas
+    - intent: request_for_idea_details
+    - action: action_take_idea_forward
+    - action: utter_proceed_with_idea_or_not
+    - intent: deny_proceed_with_idea
+    - action: utter_ask_idea
+
+- story: Sad After showing ideas 3
+  steps:
+    - action: action_show_ideas
+    - intent: request_for_idea_details
+    - action: action_take_idea_forward
+    - action: utter_proceed_with_idea_or_not
+    - intent: tell_idea
+    - action: action_take_idea_forward
+
+- story: After Bot asks Idea after rejection of proceed idea given by user
+  steps:
+    - action: utter_ask_idea
+    - intent: tell_idea
+    - action: action_take_idea_forward
+
 - story: Happy After Choosing Idea yes 1
   steps:
     - action: utter_ask_competitors
@@ -35,7 +73,7 @@ stories:
   steps:
     - action: utter_ask_competitors
     - intent: tell_competitors_positive
-    - action: utter_ask_customers
+    - action: utter_ask_idea
 
 - story: Happy after answering about competitors 1
   steps:
@@ -48,11 +86,17 @@ stories:
   steps:
     - action: utter_ask_customers
     - intent: tell_customers_negative
-    # - action: utter_test
+    - action: utter_ask_idea
 
 - story: Happy after seeing investment returns 1
   steps:
     - action : utter_ask_investment_returns_finalization
     - intent: affirm
     - action: action_summarize
+
+- story: Sad after seeing investment returns 1
+  steps:
+    - action : utter_ask_investment_returns_finalization
+    - intent: deny
+    - action: utter_ask_idea
  

@@ -16,6 +16,7 @@ nlu:
     - suggest me some ideas 
     - Can you tell me a few ideas?
 
+
 - intent: tell_idea
   examples: |
     - I was thinking of [cooking](idea)
@@ -109,15 +110,15 @@ nlu:
 
 - intent: tell_skills
   examples: |
-    - I can [make papad](skill)
-    - I can [teach](skill)
-    - I am good at [embroidery](skill)
-    - I am good at [math](skill)
-    - I am good at [teaching](skill) and [embroidery](skill)
-    - I can do [teaching](skill) and [embroidery](skill)
-    - I can do [teaching](skill), [embroidery](skill) and [make papad](skill)
-    - my skills are [teaching](skill) and [embroidery](skill)
-    - my skills are [teaching](skill), [embroidery](skill) and [make papad](skill)
+    - I can [make papad](idea)
+    - I can [teach](idea)
+    - I am good at [embroidery](idea)
+    - I am good at [math](idea)
+    - I am good at [teaching](idea) and [embroidery](idea)
+    - I can do [teaching](idea) and [embroidery](idea)
+    - I can do [teaching](idea), [embroidery](idea) and [make papad](idea)
+    - my ideas are [teaching](idea) and [embroidery](idea)
+    - my ideas are [teaching](idea), [embroidery](idea) and [make papad](idea)
 
 - intent: tell_competitors_positive
   examples: |
@@ -126,6 +127,7 @@ nlu:
     - Around six to ten
     - maybe too many
     - maybe a lot
+    - probably a lot
 
 - intent: tell_competitors_negative
   examples: |
@@ -178,6 +180,15 @@ nlu:
     - yeah sure I'd like to proceed
     - continue
 
+- intent: deny_proceed_with_idea
+  examples: |
+    - No I will not proceed with this idea
+    - No I dont want to talk about it
+    - I do not like this idea
+    - No dont tell me
+    - do not proceed 
+    - talk about something else
+
 - lookup: idea
   examples: |
     - cooking 
@@ -187,9 +198,9 @@ nlu:
     - teaching math
     - embroidery
 
-- lookup: skill
-  examples: |
-    - papad making 
-    - teaching math
-    - embroidery
+# - lookup: skill
+#   examples: |
+#     - papad making 
+#     - teaching math
+#     - embroidery
   

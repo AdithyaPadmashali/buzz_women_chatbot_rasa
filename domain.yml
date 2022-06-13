@@ -12,20 +12,19 @@ intents:
   - tell_skills
   - inquire_bot_abilities
   - affirm_proceed_with_idea
+  - deny_proceed_with_idea
   - tell_competitors_positive
   - tell_competitors_negative
   - tell_customers_positive
   - tell_customers_negative
 
-
 entities:
   - idea
   - skill
 
-
 slots:
   idea:
-    type: text
+    type: list
     mappings:
     - type: from_entity
       entity: idea
@@ -33,11 +32,8 @@ slots:
     - type: from_entity
       entity: idea
       intent: request_for_idea_details
-  skill:
-    type: list
-    mappings:
     - type: from_entity
-      entity: skill
+      entity: idea
       intent: tell_skills
 
   # proceed_with_idea:
@@ -51,6 +47,12 @@ slots:
       
 
 responses:
+
+  utter_ask_idea:
+  - text: "Do you have any other idea in mind?"
+  - text: "No problem... tell me what you would like to talk about?"
+  - text: "Ah that's okay... what would you like to talk about?"
+  - text: "That's no problem! tell me what you want to talk about"
 
   utter_greet:
   - text: "Hey! What can I do for you?"
