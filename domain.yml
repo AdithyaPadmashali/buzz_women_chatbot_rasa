@@ -17,10 +17,15 @@ intents:
   - tell_competitors_negative
   - tell_customers_positive
   - tell_customers_negative
+  - choose_skill_basis
+  - choose_investment_basis
+  - choose_all_basis
+  - tell_investment_high
+  - tell_investment_low
+  - tell_investment_med
 
 entities:
   - idea
-  - skill
 
 slots:
   idea:
@@ -56,6 +61,21 @@ slots:
       - type: from_intent
         intent: tell_competitors_negative
         value: false
+
+  investment_level:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_intent
+        intent: tell_investment_high
+        value: high
+      - type: from_intent
+        intent: tell_investment_low
+        value: low
+      - type: from_intent
+        intent: tell_investment_med
+        value: med
+
   # proceed_with_idea:
   #   type: bool
   #   initial_value: false
@@ -63,10 +83,29 @@ slots:
   #   - type: from_intent
   #     value: true
   #     intent: affirm_proceed_with_idea
-        
-      
 
 responses:
+
+
+  utter_ask_investment:
+  - text: "How much money can you invest into your business?"
+    buttons: 
+    - title: "less than 50000"
+      payload: "/tell_investment_low"
+    - title: "50000-100000"
+      payload: "/tell_investment_med"
+    - title: "more than 100000"
+      payload: "/tell_investment_high"
+
+  utter_ask_basis:
+  - text: "Do you want to see ideas based on how much to invest or based on your skills?"
+    buttons:
+    - title: "Based on investment"
+      payload: "/choose_investment_basis"
+    - title: "Based on skills"
+      payload: "/choose_skill_basis"
+    # - title: "Show me all ideas"
+    #   payload: "/choose_all_basis"
 
   utter_ask_idea:
   - text: "Do you have any other idea in mind?"

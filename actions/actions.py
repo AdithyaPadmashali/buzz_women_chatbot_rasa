@@ -29,9 +29,15 @@ class ActionShowIdeas(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        skill_submitted.extend(tracker.get_slot('idea'))
+        current_idea = tracker.get_slot('idea')
+        if(current_idea):
+            skill_submitted.extend(current_idea)
+        investment_level = tracker.get_slot('investment_level')
 
         print(skill_submitted)
+        if(investment_level):
+            print("investment level = ", investment_level)
+
         ideas = []
         for s in skill_submitted:
             print(s)
@@ -40,7 +46,7 @@ class ActionShowIdeas(Action):
         # ideas = ' ,'.join(ideas)
 
         # print(ideas)
-        if(not skill_submitted):
+        if(not skill_submitted and not investment_level):
             dispatcher.utter_message(text="Sorry, didnt get what you meant")
         else:
             dispatcher.utter_message(text="You can think about {ideas}".format(ideas = ideas))
@@ -140,7 +146,7 @@ class ActionSummarize(Action):
         idea_submitted = tracker.get_slot('idea')
 
 
-        dispatcher.utter_message(text="So to summarize, you are interested in", idea_submitted)
+        dispatcher.utter_message(text="So to summarize, you are interested in"+ str(idea_submitted))
         print(x, y)
         # idea_submitted = tracker.get_slot('idea')
         # skill_submitted = tracker.get_slot('skill')

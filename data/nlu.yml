@@ -16,6 +16,53 @@ nlu:
     - suggest me some ideas 
     - Can you tell me a few ideas?
 
+- intent: choose_investment_basis
+  examples: |
+    - I want ideas based on investment level
+    - show me investment basis
+    - investment basis please
+    - investment basis
+    - on the basis of investment
+
+# - intent: chooose_all_basis
+#   examples: |
+#     - on the basis of all
+#     - show me on all the basis
+#     - show me all your options and ideas
+#     - show me all your ideas
+
+- intent: choose_skill_basis
+  examples: |
+    - I want ideas based on my skills
+    - I want ideas based on my skill level
+    - I want ideas based on my expertise
+    - show me skill basis
+    - skill basis please
+    - skill basis
+    - on the basis of skills
+
+- intent: tell_investment_high
+  examples: |
+    - I have lot of money to invest
+    - I can put more than a lakh
+    - I can put more than 100000
+    - I can put in a lot of investment
+
+- intent: tell_investment_low
+  examples: |
+    - I dont have much to put
+    - I dont have enough money
+    - I dont have a lot of money
+    - I can invest less than fifty thousand
+    - I can invest less than 50000
+  
+- intent: tell_investment_med
+  examples: |
+    - Im not sure how much to invest
+    - I can invest between fifty thousand to a lakh
+    - I can invest between 50000 to 100000
+
+
 
 - intent: tell_idea
   examples: |

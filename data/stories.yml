@@ -8,12 +8,47 @@ stories:
     - intent: tell_idea
     - action: action_take_idea_forward
 
-
-- story: Show ideas when asked
+- story: Show ideas when asked based on skills
   steps: 
   - intent: request_for_idea
+  - action: utter_ask_basis
+  - intent: choose_skill_basis
   - action: utter_ask_skills
   - intent: tell_skills
+  - action: action_show_ideas
+
+# - story: Show ideas when asked based on 'all ideas'
+#   steps: 
+#   - intent: request_for_idea
+#   - action: utter_ask_basis
+#   - intent: choose_all_basis
+#   - action: action_show_ideas
+
+- story: Show ideas when asked based on investment limitations low
+  steps: 
+  - intent: request_for_idea
+  - action: utter_ask_basis
+  - intent: choose_investment_basis
+  - action: utter_ask_investment
+  - intent: tell_investment_low
+  - action: action_show_ideas
+
+- story: Show ideas when asked based on investment limitations med
+  steps: 
+  - intent: request_for_idea
+  - action: utter_ask_basis
+  - intent: choose_investment_basis
+  - action: utter_ask_investment
+  - intent: tell_investment_med
+  - action: action_show_ideas
+
+- story: Show ideas when asked based on investment limitations high
+  steps: 
+  - intent: request_for_idea
+  - action: utter_ask_basis
+  - intent: choose_investment_basis
+  - action: utter_ask_investment
+  - intent: tell_investment_high
   - action: action_show_ideas
 
 - story: After showing ideas 1
