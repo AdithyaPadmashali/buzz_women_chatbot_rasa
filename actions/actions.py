@@ -135,8 +135,13 @@ class ActionSummarize(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Now im summarizing your facts")
+        x, y = tracker.get_slot('has_customers'), tracker.get_slot('has_competitors')
 
+        idea_submitted = tracker.get_slot('idea')
+
+
+        dispatcher.utter_message(text="So to summarize, you are interested in", idea_submitted)
+        print(x, y)
         # idea_submitted = tracker.get_slot('idea')
         # skill_submitted = tracker.get_slot('skill')
 

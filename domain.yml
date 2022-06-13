@@ -46,6 +46,16 @@ slots:
       - type: from_intent
         intent: tell_customers_negative
         value: false
+  has_competitors:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: from_intent
+        intent: tell_competitors_positive
+        value: true
+      - type: from_intent
+        intent: tell_competitors_negative
+        value: false
   # proceed_with_idea:
   #   type: bool
   #   initial_value: false
@@ -99,7 +109,17 @@ responses:
 
   utter_ask_customers:
   - text: "How many potential customers would you be able to get?"
+    buttons:
+    - title: "Yes, customers are there"
+      payload: "/tell_customers_positive"
+    - title: "No, not many customers are there"
+      payload: "/tell_customers_negative"
   - text: "Are there a lot of customers around there? How many do you think you can get?"
+    buttons:
+    - title: "Yes, customers are there"
+      payload: "/tell_customers_positive"
+    - title: "No, not many customers are there"
+      payload: "/tell_customers_negative"
   - text: "Consider the amount of customers for your business around that area? are there any? are there many?"
     buttons:
     - title: "Yes, customers are there"
