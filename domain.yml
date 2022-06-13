@@ -36,6 +36,16 @@ slots:
       entity: idea
       intent: tell_skills
 
+  has_customers:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: from_intent
+        intent: tell_customers_positive
+        value: true
+      - type: from_intent
+        intent: tell_customers_negative
+        value: false
   # proceed_with_idea:
   #   type: bool
   #   initial_value: false
@@ -77,6 +87,11 @@ responses:
 
   utter_ask_competitors:
   - text: "How many competitors might be there around you?"
+    buttons:
+    - title: "Yes, competitors are there"
+      payload: "/tell_competitors_positive"
+    - title: "No, not many competitors are there"
+      payload: "/tell_competitors_negative"
 
   utter_ask_investment_returns_finalization:
   - text: "so, are the investment details okay with you?"
@@ -86,6 +101,11 @@ responses:
   - text: "How many potential customers would you be able to get?"
   - text: "Are there a lot of customers around there? How many do you think you can get?"
   - text: "Consider the amount of customers for your business around that area? are there any? are there many?"
+    buttons:
+    - title: "Yes, customers are there"
+      payload: "/tell_customers_positive"
+    - title: "No, not many customers are there"
+      payload: "/tell_customers_negative"
 
   utter_test:
     - text: "This is the slot values : {proceed_with_idea}"
