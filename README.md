@@ -1,3 +1,3 @@
-# buzz_women_chatbot_rasa
+# Buzz Women Chatbot Assitant
 A Web-based Chatbot using Rasa Contextual-Based Assistant. 
 
