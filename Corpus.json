@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "category": "cooking",
+        "detailed_tags" : ["Papad making", "Sweets", "Bakery Items", "Catering", "Pickle making", "Jam and Jelly making", "cooking"],
+        "info": "",
+        "requirements" : "You will need some specialized cooking equipment. Continuous electricity supply. You may also need some workers to help you with the business.",
+        "generalInfo" : "You will need to find a place to set up shop if wish to sell directly to customers. You may also choose to be a supplier to a shop in a nearby district.",
+        "investment" : [80000, 300000],
+        "returns":"",
+        "timeInvestment": "You need to invest atleast 5 hrs a day.",
+        "investment_level" : "med"
+    },
+    {   
+        "id" : 2,
+        "category" : "tailoring",
+        "detailed_tags" : ["stitching", "Embriodery", "Cloth making", "tailoring"],
+        "info": " ",
+        "requirements": "Basic requirements are Sewing Machine, Thread bundle, needles, continuous electricity supply.", 
+        "generalInfo" : "You need to study you local customer base and determine if you can get clients.",
+        "investment": [100000, 300000],
+        "returns":"",
+        "timeInvestment": "You need to invest atleast 8 hrs a day.",
+        "investment_level" : "med"
+    },
+    {   
+        "id" : 3,
+        "category" : "animal raring",
+        "detailed_tags" : ["goat raring", "sheep raring", "poultry", "fish farming", "animal raring"],
+        "info": " ",
+        "requirements": "You need to buy livestock if not owned. Should know how to handle animals.", 
+        "generalInfo" : "Animal raring requires a high investment of time and money.",
+        "investment": [500000, 1000000],
+        "returns": "",
+        "timeInvestment": "You need to invest atleast 8 hrs a day.",
+        "investment_level" : "high"
+    },
+    {   
+        "id" : 4,
+        "category" : "small scale manufacturing",
+        "detailed_tags" : ["Sanitary pads", "Agarbatti", "Disposible bags", "Paper bags", "small scale manufacturing"],
+        "info": " ",
+        "requirements": "You will need to buy some specialzed manufacturing equipment.", 
+        "generalInfo" : "This is a medium level investment business. It will require a significant time effort",
+        "investment": [100000, 300000],
+        "returns": "",
+        "timeInvestment": "You need to invest atleast 8 hrs a day.",
+        "investment_level" : "med"
+    },
+    {   
+        "id" : 5,
+        "category" : "retail",
+        "detailed_tags" : ["tea shop", "xerox shop", "vegetable shop", "shoe shop", "retail"],
+        "info": " ",
+        "requirements": "You need to look for a retial space. Must hire helpers. Learn the skills required to sell something.", 
+        "generalInfo" : "You need to study you local customer base and determine if you can get clients. You need to find a supplier to buy items",
+        "investment": [300000, 1000000],
+        "returns": "",
+        "timeInvestment": "You need to invest atleast 10 hrs a day.",
+        "investment_level" : "high"
+    },
+    {
+        "id" : 6,
+        "category" : "teaching",
+        "detailed_tags" : ["tutions", "dance", "singing class", "art and drawing", "teaching"],
+        "info": " ",
+        "requirements": "You need to look for a retial space. Must hire helpers. Learn the skills required to sell something.", 
+        "generalInfo" : "You don't need to invest a lot for this. You may gather clients by talking to you neighbours.",
+        "investment": [0, 50000],
+        "returns": "",
+        "timeInvestment": "You need to invest atleast 4 hrs a day.",
+        "investment_level" : "low"
+    }
+]
