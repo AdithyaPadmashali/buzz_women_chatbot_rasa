@@ -44,7 +44,15 @@ class ActionShowIdeas(Action):
             dispatcher.utter_message(text="Sorry, didnt get what you meant")
         else:
             dispatcher.utter_message(text="You can think about {ideas}".format(ideas = ideas))
+        
             # dispatcher.utter_message(text="But considering your skills, these seem to be a good match: ")
+        buttons = []
+
+        buttons.append({'title': 'Tell me more about it!' , 'payload': '/request_for_idea_details'})
+        # buttons.append({'title': 'No talk about something else' , 'payload': 'payload_value'})
+
+        dispatcher.utter_message(text="press button to continue... or tell me a new idea if you want to talk about it...", buttons=buttons)
+        # dispatcher.utter_message(text= 'message you want to display' , buttons=buttons)
 
         return []
 

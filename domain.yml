@@ -92,6 +92,11 @@ responses:
 
   utter_proceed_with_idea_or_not:
   - text: "Would you like to talk more about this? If no choose another topic to talk about"
+    buttons: 
+    - title: "Proceed with idea"
+      payload: "/affirm_proceed_with_idea"
+    - title: "No tell me something else"
+      payload: "/deny_proceed_with_idea"
 
 actions:
   - action_show_ideas
