@@ -1,0 +1,5 @@
+Two Terminals:
+1. rasa run -m models --enable-api --cors "*" --debug
+2. rasa run actions
+
+Open the index.html file
