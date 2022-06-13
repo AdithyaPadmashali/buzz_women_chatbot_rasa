@@ -55,6 +55,11 @@ responses:
 
   utter_greet:
   - text: "Hey! What can I do for you?"
+    buttons:
+    - title: "Request for Idea"
+      payload: /request_for_idea
+    - title: "My Skills"
+      payload: /tell_skills
 
   utter_ask_skills:
   - text: "Tell me about your skills, so I can suggest you ideas"
