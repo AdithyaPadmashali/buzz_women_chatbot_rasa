@@ -184,13 +184,13 @@ function send(message) {
             "message": message,
             "sender": "User"
         }),
-        success: function(data, textStatus) {
+        success: function (data, textStatus) {
             if (data != null) {
                 setBotResponse(data);
             }
             console.log("Rasa Response: ", data, "\n Status:", textStatus)
         },
-        error: function(errorMessage) {
+        error: function (errorMessage) {
             setBotResponse("");
             console.log('Error' + errorMessage);
 
@@ -202,7 +202,7 @@ function send(message) {
 
 //------------------------------------ Set bot response -------------------------------------
 function setBotResponse(val) {
-    setTimeout(function() {
+    setTimeout(function () {
         if (val.length < 1) {
             //if there is no response from Rasa
             // msg = 'I couldn\'t get that. Let\' try something else!';
@@ -267,11 +267,11 @@ function mobileView() {
 
     if (chatPopup.style.display == "none") {
         chatPopup.style.display = "flex"
-            // chatInput.focus();
+        // chatInput.focus();
         chatBtn.style.display = "none"
         chatPopup.style.bottom = "0"
         chatPopup.style.right = "0"
-            // chatPopup.style.transition = "none"
+        // chatPopup.style.transition = "none"
         expandWindow.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
     }
 }
