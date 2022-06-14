@@ -8,6 +8,9 @@ nlu:
     - I want suggestions
     - Suggest me some ideas
     - Give me ideas
+    - I want biznes idea
+    - I want advice
+    - Give me advice
     - I want to make money
     - I want a source of income
     - I want to start a business
@@ -62,8 +65,6 @@ nlu:
     - I can invest between fifty thousand to a lakh
     - I can invest between 50000 to 100000
 
-
-
 - intent: tell_idea
   examples: |
     - I was thinking of [cooking](idea)
@@ -80,6 +81,8 @@ nlu:
     - I want more details about [cooking](idea)
     - can you tell me more about [cooking](idea)?
     - give me more details about [cooking](idea)?
+    - talk about [cooking](idea)
+    - lets talk about [cooking](idea)
     - can you tell me more about the idea?
     - can you tell me more about it?
     - give me more details about the idea?
