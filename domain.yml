@@ -109,15 +109,49 @@ responses:
 
   utter_ask_idea:
   - text: "Do you have any other idea in mind?"
+    buttons:
+    - title: "Cooking"
+      payload: '/tell_idea{"idea":"cooking"}'
+    - title: "Teaching"
+      payload: '/tell_idea{"idea":"teaching"}'
   - text: "No problem... tell me what you would like to talk about?"
+    buttons:
+    - title: "Cooking"
+      payload: '/tell_idea{"idea":"cooking"}'
+    - title: "Teaching"
+      payload: '/tell_idea{"idea":"teaching"}'
   - text: "Ah that's okay... what would you like to talk about?"
+    buttons:
+    - title: "Cooking"
+      payload: '/tell_idea{"idea":"cooking"}'
+    - title: "Teaching"
+      payload: '/tell_idea{"idea":"teaching"}'
   - text: "That's no problem! tell me what you want to talk about"
+    buttons:
+    - title: "Cooking"
+      payload: '/tell_idea{"idea":"cooking"}'
+    - title: "Teaching"
+      payload: '/tell_idea{"idea":"teaching"}'
 
   utter_greet:
   - text: "Hey! What can I do for you?"
+    buttons:
+    - title: "Give me business ideas"
+      payload: "/request_for_idea"
+    - title: "What can you do for me?"
+      payload: "/inquire_bot_abilities"
+    - title: "who are you?"
+      payload: "/bot_challenge"
 
   utter_ask_skills:
   - text: "Tell me about your skills, so I can suggest you ideas"
+    buttons:
+    - title: "I am good at cooking"
+      payload: '/tell_skills{"idea":"cooking"}'
+    - title: "I am good at raring"
+      payload: '/tell_skills{"idea":"raring"}'
+    - title: "I can do teaching"
+      payload: '/tell_skills{"idea":"teaching"}'
 
   utter_goodbye:
   - text: "I hope I could help! All the best, gelathi!"
@@ -129,8 +163,11 @@ responses:
   - text: "I am a bot trying to help you figure out a business idea. What can I do for you ?"
 
   utter_bot_abilities:
-  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind. Also please try to avoid short responses :)"
-
+  - text: "You can start by asking me suggestions for a business idea or asking me to talk about any idea that you have in mind :)"
+    buttons:
+      - title: "Okay tell me some ideas"
+        payload: "/request_for_idea"
+        
   utter_okay_idea:
   - text: "Great! Lets talk about {idea}!"
 
